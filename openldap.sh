@@ -63,7 +63,7 @@ function setup_slapd.d(){
 	# Create the admin password
 		echo -e '\e[33mPlease type in the password you wish your admin user to use\e[0m'
 		read pass
-		passwd=$(slappasswd -s $pass)
+		passwd=$(slappasswd -s "$pass")
 
 	# Creates the slapd.conf file
 		cat << EOB > $prefix/slapd.conf
