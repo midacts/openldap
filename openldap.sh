@@ -499,7 +499,7 @@ EOL
 	# Creates a cron job to automatically start the slapd daemon
 		echo
 		echo -e '\e[01;34m+++ Editing the Crontab file...\e[0m'
-		echo '# Script to make sure the slapd daemon is running'
+		echo '# Script to make sure the slapd daemon is running' >> /var/spool/cron/crontabs/root
 		echo '0,15 * * * * /usr/local/etc/openldap/slapd.sh' >> /var/spool/cron/crontabs/root
 		echo
 		echo -e '\e[1;37;42mThe Crontab file has been successfully edited!\e[0m'
