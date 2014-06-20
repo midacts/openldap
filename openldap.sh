@@ -181,7 +181,7 @@ changetype: add
 objectClass: olcDatabaseConfig
 objectClass: olcMdbConfig
 olcDatabase: mdb
-olcSuffix: dc=john,dc=com
+olcSuffix: dc=${suffix[0]},dc=${suffix[1]}
 olcRootDN: cn=admin,dc=${suffix[0]},dc=${suffix[1]}
 olcRootPW: $passwd
 olcDbDirectory: $dbdirectory
