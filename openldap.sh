@@ -219,7 +219,7 @@ EOC
 	# Adds the DIT to your openldap database
 		sleep 2
 		echo
-		ldapadd -D cn=admin,cn=config -w $pass -f $prefix/ldif/directory.ldif
+		ldapadd -D cn=admin,cn=config -w "$pass" -f $prefix/ldif/directory.ldif
 		echo -e '\e[01;37;42mThe MDB database has been successfully created!\e[0m'
 }
 function setup_structure(){
@@ -261,7 +261,7 @@ EOD
 
 	# Adds the structure.ldif file to the database
 		echo
-		ldapadd -H ldap://localhost -D cn=admin,dc=${suffix[0]},dc=${suffix[1]} -w $pass -f $prefix/ldif/structure.ldif
+		ldapadd -H ldap://localhost -D cn=admin,dc=${suffix[0]},dc=${suffix[1]} -w "$pass" -f $prefix/ldif/structure.ldif
 		echo -e '\e[01;37;42mThe DIT structure of your domain has been successfully created!\e[0m'
 }
 function setup_frontend(){
@@ -279,7 +279,7 @@ EOE
 
 	# Adds the frontend.ldif file to the database
 		echo
-		ldapmodify -D cn=admin,cn=config -w $pass -f $prefix/ldif/frontend.ldif
+		ldapmodify -D cn=admin,cn=config -w "$pass" -f $prefix/ldif/frontend.ldif
 		echo -e '\e[01;37;42mThe frontend database has been successfully created!\e[0m'
 }
 function setup_monitor(){
@@ -306,7 +306,7 @@ olcAccess: {0}to * by dn="cn=admin,${suffix[0]},dc=${suffix[1]}" read
 EOF
 
 	# Adds the monitor.ldif file to the database
-		ldapadd -x -D cn=admin,cn=config -w $pass -f $prefix/ldif/monitor.ldif
+		ldapadd -x -D cn=admin,cn=config -w "$pass" -f $prefix/ldif/monitor.ldif
 		echo -e '\e[01;37;42mThe monitor database has been successfully created!\e[0m'
 
 }
@@ -342,8 +342,8 @@ EOG
 
 	# Adds access.ldif to the database
 	# http://serverfault.com/questions/272125/how-do-i-install-a-new-schema-for-openldap-on-debian-5-with-dynamic-config-cn-ba
-		#ldapmodify -x -H ldap://localhost -f $prefix/ldif/access.ldif -D cn=admin,cn=config -w $pass
-		ldapadd -x -D cn=admin,cn=config -w $pass -f ldif/access.ldif
+		#ldapmodify -x -H ldap://localhost -f $prefix/ldif/access.ldif -D cn=admin,cn=config -w "$pass"
+		ldapadd -x -D cn=admin,cn=config -w "$pass" -f ldif/access.ldif
 		echo -e '\e[01;37;42mThe access database has been successfully created!\e[0m'
 
 	# Creates the audit.ldif file
@@ -366,7 +366,7 @@ EOH
 
 	# Adds the audit.ldif to the database
 		echo
-		ldapadd -x -D cn=admin,cn=config -w $pass -f ldif/audit.ldif
+		ldapadd -x -D cn=admin,cn=config -w "$pass" -f ldif/audit.ldif
 		echo -e '\e[01;37;42mThe audit log database has been successfully created!\e[0m'
 }
 function setup_tls(){
@@ -419,7 +419,7 @@ olcTLSCertificateKeyFile: $prefix/ssl/openldap.key
 EOI
 
 	# Adds the cert.ldif file to the database
-		ldapmodify -x -H ldap://localhost -f $prefix/ldif/cert.ldif -D cn=admin,cn=config -w $pass
+		ldapmodify -x -H ldap://localhost -f $prefix/ldif/cert.ldif -D cn=admin,cn=config -w "$pass"
 		echo -e '\e[01;37;42mThe openldap certificates have been successfully added to your cn=config!\e[0m'
 
 	# Copies your ca.crt to the ca-certificates directory so it can be trusted by your server
@@ -459,7 +459,7 @@ EOK
 
 	# Adds the security.ldif
 		echo
-		ldapadd -D cn=admin,cn=config -w $pass -f $prefix/ldif/security.ldif
+		ldapadd -D cn=admin,cn=config -w "$pass" -f $prefix/ldif/security.ldif
 		echo -e '\e[01;37;42mSecurity on your OpenLDAP server has been successfully tightened!\e[0m'
 }
 function cron_slapd(){
