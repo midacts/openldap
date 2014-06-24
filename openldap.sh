@@ -315,10 +315,10 @@ function setup_access(){
 		echo
 		echo -e '\e[01;34m+++ Creating the Access Database...\e[0m'
 		cat << EOG > $prefix/ldif/access.ldif
-dn: olcDatabase={2}mdb,cn=config
+dn: olcDatabase={4}mdb,cn=config
 objectClass: olcDatabaseConfig
 objectClass: olcMdbConfig
-olcDatabase: {2}mdb
+olcDatabase: {4}mdb
 olcDbDirectory: $dbdirectory/
 olcSuffix: cn=log
 olcDbIndex: reqStart eq
@@ -326,7 +326,7 @@ olcDbMaxSize: 1073741824
 olcDbMode: 0600
 olcAccess: {1}to * by dn="cn=admin,dc=${suffix[0]},dc=${suffix[1]}" read
 
-dn: olcOverlay={1}accesslog,olcDatabase={3}mdb,cn=config
+dn: olcOverlay={1}accesslog,olcDatabase={1}mdb,cn=config
 objectClass: olcOverlayConfig
 objectClass: olcAccessLogConfig
 olcOverlay: {1}accesslog
