@@ -13,7 +13,7 @@
 ######## VARIABLES ########
 version=2.4.39
 prefix=/usr/local/etc/openldap
-dbdirectory=/usr/local/var/openldap-data/
+dbdirectory=/usr/local/var/openldap-data
 function install_openldap(){
 	# Install prerequisite software
 		echo
@@ -184,7 +184,7 @@ olcDatabase: mdb
 olcSuffix: dc=${suffix[0]},dc=${suffix[1]}
 olcRootDN: cn=admin,dc=${suffix[0]},dc=${suffix[1]}
 olcRootPW: $passwd
-olcDbDirectory: $dbdirectory
+olcDbDirectory: $dbdirectory/
 olcDbIndex: objectClass eq
 olcAccess: to attrs=userPassword by dn="cn=admin,dc=${suffix[0]},dc=${suffix[1]}" write
   by anonymous auth
@@ -319,7 +319,7 @@ dn: olcDatabase={2}mdb,cn=config
 objectClass: olcDatabaseConfig
 objectClass: olcMdbConfig
 olcDatabase: {2}mdb
-olcDbDirectory: $dbdirectory
+olcDbDirectory: $dbdirectory/
 olcSuffix: cn=log
 olcDbIndex: reqStart eq
 olcDbMaxSize: 1073741824
