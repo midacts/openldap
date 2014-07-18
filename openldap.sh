@@ -156,6 +156,13 @@ function setup_ldap(){
 		echo -e '\e[01;37;42mThe ldap.conf file has been successfully edited!\e[0m'
 }
 function setup_mdb(){
+	# Checks  if the $pass variable is set
+		if [[ -z "$pass" ]]; then
+			echo
+			echo -e "\e[33mPlease type in the admin user's password\e[0m"
+			read pass
+		fi
+
 	# Checks if the $suffix variable is set
 		echo
 		echo -e '\e[01;34m+++ Creating the MDB Database...\e[0m'
@@ -223,6 +230,13 @@ EOC
 		echo -e '\e[01;37;42mThe MDB database has been successfully created!\e[0m'
 }
 function setup_structure(){
+	# Checks  if the $pass variable is set
+		if [[ -z "$pass" ]]; then
+			echo
+			echo -e "\e[33mPlease type in the admin user's password\e[0m"
+			read pass
+		fi
+
 	# Checks if the $suffix variable is set
 		echo
 		echo -e '\e[01;34m+++ Creating the DIT structure of your domain...\e[0m'
@@ -265,6 +279,13 @@ EOD
 		echo -e '\e[01;37;42mThe DIT structure of your domain has been successfully created!\e[0m'
 }
 function setup_frontend(){
+	# Checks  if the $pass variable is set
+		if [[ -z "$pass" ]]; then
+			echo
+			echo -e "\e[33mPlease type in the admin user's password\e[0m"
+			read pass
+		fi
+
 	# Creates the frontend.ldif file
 		echo
 		echo -e '\e[01;34m+++ Creating the Frontend Database...\e[0m'
@@ -283,6 +304,13 @@ EOE
 		echo -e '\e[01;37;42mThe frontend database has been successfully created!\e[0m'
 }
 function setup_monitor(){
+	# Checks  if the $pass variable is set
+		if [[ -z "$pass" ]]; then
+			echo
+			echo -e "\e[33mPlease type in the admin user's password\e[0m"
+			read pass
+		fi
+
 	# Checks if the $suffix variable is set
 		echo
 		echo -e '\e[01;34m+++ Creting the DIT structure of your domain...\e[0m'
@@ -311,6 +339,13 @@ EOF
 
 }
 function setup_access(){
+	# Checks  if the $pass variable is set
+		if [[ -z "$pass" ]]; then
+			echo
+			echo -e "\e[33mPlease type in the admin user's password\e[0m"
+			read pass
+		fi
+
 	# Creates the access.ldif file
 		echo
 		echo -e '\e[01;34m+++ Creating the Access Database...\e[0m'
@@ -370,6 +405,13 @@ EOH
 		echo -e '\e[01;37;42mThe audit log database has been successfully created!\e[0m'
 }
 function setup_tls(){
+	# Checks  if the $pass variable is set
+		if [[ -z "$pass" ]]; then
+			echo
+			echo -e "\e[33mPlease type in the admin user's password\e[0m"
+			read pass
+		fi
+
 	# Create the ssl directory to house your ssl certificates
 		echo
 		echo -e '\e[01;34m+++ Setting up StartTLS...\e[0m'
@@ -441,6 +483,13 @@ EOJ
 		echo -e '\e[01;37;42mStartTLS has been successfully setup!\e[0m'
 }
 function setup_sec(){
+	# Checks  if the $pass variable is set
+		if [[ -z "$pass" ]]; then
+			echo
+			echo -e "\e[33mPlease type in the admin user's password\e[0m"
+			read pass
+		fi
+
 	# Creates the sec.ldif file
 		echo
 		echo -e '\e[01;34m+++ Forcing StartTLS and requiring authentication and binding...\e[0m'
